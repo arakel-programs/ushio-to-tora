@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cxko1qppxfhbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhqbd"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="DialogueBox" type="Control" unique_id=646357683]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1234709211]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhqbd")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1039091713]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dialogue text here"
+vertical_alignment = 1
+autowrap_mode = 2

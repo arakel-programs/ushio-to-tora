@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djrviti2iamev"]
+
+[ext_resource type="PackedScene" uid="uid://cbxo2qmqyiue8" path="res://Player.tscn" id="1_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://cxly143k5eplf" path="res://NPC.tscn" id="2_js7pq"]
+[ext_resource type="PackedScene" uid="uid://cxko1qppxfhbc" path="res://DialogueBox.tscn" id="3_eu7l1"]
+[ext_resource type="PackedScene" uid="uid://cw6kro3ukj05y" path="res://Enemy.tscn" id="3_p1v5b"]
+[ext_resource type="Script" uid="uid://cxa4h5sth8xf0" path="res://dialogue_box.gd" id="4_js7pq"]
+
+[node name="World" type="Node2D" unique_id=1553954030]
+
+[node name="Player" parent="." unique_id=1418469159 instance=ExtResource("1_bcbcq")]
+position = Vector2(611, 296)
+
+[node name="NPC" parent="." unique_id=984307158 instance=ExtResource("2_js7pq")]
+position = Vector2(148, 113)
+
+[node name="Enemy" parent="." unique_id=1012556905 instance=ExtResource("3_p1v5b")]
+position = Vector2(993, 148)
+
+[node name="Enemy2" parent="." unique_id=2058231452 instance=ExtResource("3_p1v5b")]
+position = Vector2(1050, 407)
+enemy_name = "Imp"
+hp = 15
+attack = 3
+xp_reward = 4
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=181111525]
+
+[node name="DialogueBox" parent="UI" unique_id=646357683 instance=ExtResource("3_eu7l1")]
+script = ExtResource("4_js7pq")

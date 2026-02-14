@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ds03lqpadd1qf"]
+
+[ext_resource type="Script" uid="uid://deddlsqnp1343" path="res://battle.gd" id="1_u8cu3"]
+
+[node name="Battle" type="Control" unique_id=792006364]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u8cu3")
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=2088327978]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnemyLabel" type="Label" parent="." unique_id=1367946671]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 55.0
+offset_right = 187.0
+offset_bottom = 78.0
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1973960015]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 124.0
+offset_right = 39.0
+offset_bottom = 199.0
+text = "A yokai appears!"
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1486468351]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 289.0
+offset_right = 325.0
+offset_bottom = 329.0
+
+[node name="AttackButton" type="Button" parent="Buttons" unique_id=652991516]
+layout_mode = 2
+text = "Attack"
+
+[node name="SkillButton" type="Button" parent="Buttons" unique_id=1878738660]
+layout_mode = 2
+text = "Skill"
+
+[node name="ItemButton" type="Button" parent="Buttons" unique_id=593477048]
+layout_mode = 2
+text = "Item"
+
+[node name="RunButton" type="Button" parent="Buttons" unique_id=1630840801]
+layout_mode = 2
+text = "Run"
+
+[node name="SkillPanel" type="Panel" parent="." unique_id=2045369303]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 39.0
+offset_right = 410.0
+offset_bottom = 79.0
+
+[node name="SkillList" type="VBoxContainer" parent="SkillPanel" unique_id=1087738284]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FireSealButton" type="Button" parent="SkillPanel/SkillList" unique_id=360238262]
+layout_mode = 2
+text = "Fire Seal"
+
+[node name="BarrierButton" type="Button" parent="SkillPanel/SkillList" unique_id=2062960222]
+layout_mode = 2
+text = "Barrier Seal"
+
+[node name="BackButton" type="Button" parent="SkillPanel/SkillList" unique_id=1633708111]
+layout_mode = 2
+text = "Back"
