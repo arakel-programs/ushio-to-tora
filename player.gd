@@ -21,6 +21,24 @@ func _physics_process(_delta: float) -> void:
 	dir.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	dir = dir.normalized()
 
+	velocity = dir * speed
+	move_and_slide()
+
+	# Animation logic
+	if dir == Vector2.ZERO:
+		$Sprite.stop()
+	else:
+		if abs(dir.x) > abs(dir.y):
+			if dir.x > 0:
+				$Sprite.play("right")
+			else:
+				$Sprite.play("left")
+		else:
+			if dir.y > 0:
+				$Sprite.play("down")
+			else:
+				$Sprite.play("up")
+
 	# --- Random encounter tick (only when moving) ---
 	var is_moving := dir != Vector2.ZERO
 	if is_moving:

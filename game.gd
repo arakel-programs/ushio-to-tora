@@ -14,7 +14,7 @@ var potions := 2
 var fire_seal_uses := 3
 
 func goto_scene(path: String) -> void:
-	get_tree().change_scene_to_file(path)
+	Transition.change_scene(path)
 
 func gain_xp(amount: int) -> void:
 	xp += amount

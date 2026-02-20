@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Game="*uid://p7a4gu3h0uy6"
 Encounter="*uid://d28a43rsrki5p"
+Transition="*uid://ddhn7dpqy70k4"
 
 [display]
 

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://uongdwkc3hcx"]
+
+[ext_resource type="Script" uid="uid://bkmkehmcfy8wb" path="res://encounter_zone.gd" id="1_vt05q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt05q"]
+size = Vector2(642, 336)
+
+[node name="EncounterZone" type="Area2D" unique_id=854490695]
+script = ExtResource("1_vt05q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=408162457]
+position = Vector2(322, 168)
+shape = SubResource("RectangleShape2D_vt05q")
