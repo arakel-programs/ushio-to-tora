@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://ds03lqpadd1qf"]
 
 [ext_resource type="Script" uid="uid://deddlsqnp1343" path="res://battle.gd" id="1_u8cu3"]
+[ext_resource type="Texture2D" uid="uid://cjef0jipe75dy" path="res://battle_bg.jpg" id="2_1046u"]
+[ext_resource type="Texture2D" uid="uid://q6wmtlsjboxs" path="res://oni-512.png" id="3_pjn1s"]
+[ext_resource type="Texture2D" uid="uid://csuwpmu8yyayt" path="res://ushio-beast-w-512.png" id="4_pjn1s"]
+[ext_resource type="FontFile" uid="uid://c844wmm6jwurt" path="res://BebasNeue-Regular.ttf" id="5_pjn1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yflgj"]
+bg_color = Color(0.19747233, 0.36299196, 0.39129314, 0.89411765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjn1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrdw4"]
+bg_color = Color(0.18727309, 0.72062236, 0.006997826, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hmwm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83ubk"]
+bg_color = Color(0.1882353, 0.72156864, 0.007843138, 1)
 
 [node name="Battle" type="Control" unique_id=792006364]
 layout_mode = 3
@@ -11,70 +28,186 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u8cu3")
 
-[node name="PlayerLabel" type="Label" parent="." unique_id=2088327978]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="BG" type="Sprite2D" parent="." unique_id=910752717]
+position = Vector2(959.00006, 535.5)
+scale = Vector2(1.0062501, 1.0231482)
+texture = ExtResource("2_1046u")
 
-[node name="EnemyLabel" type="Label" parent="." unique_id=1367946671]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 55.0
-offset_right = 187.0
-offset_bottom = 78.0
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=767398790]
+position = Vector2(1346, 403)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_pjn1s")
 
-[node name="MessageLabel" type="Label" parent="." unique_id=1973960015]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 124.0
-offset_right = 39.0
-offset_bottom = 199.0
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=2009877566]
+position = Vector2(634, 747)
+texture = ExtResource("4_pjn1s")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=703348688]
+
+[node name="MessageBox" type="PanelContainer" parent="UI" unique_id=1884800855]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yflgj")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MessageBox" unique_id=1886966684]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MessageLabel" type="Label" parent="UI/MessageBox/MarginContainer" unique_id=1973960015]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 28
 text = "A yokai appears!"
 autowrap_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="." unique_id=1486468351]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 289.0
-offset_right = 325.0
-offset_bottom = 329.0
+[node name="PlayerHUD" type="PanelContainer" parent="UI" unique_id=17897587]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -390.0
+offset_top = -294.0
+offset_right = -30.0
+offset_bottom = -204.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="AttackButton" type="Button" parent="Buttons" unique_id=652991516]
+[node name="VBox" type="VBoxContainer" parent="UI/PlayerHUD" unique_id=676122198]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlayerHUD/VBox" unique_id=1585029902]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="UI/PlayerHUD/VBox/HBoxContainer" unique_id=2088327978]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+
+[node name="LevelLabel" type="Label" parent="UI/PlayerHUD/VBox/HBoxContainer" unique_id=795289925]
+layout_mode = 2
+
+[node name="PlayerHPBar" type="ProgressBar" parent="UI/PlayerHUD/VBox" unique_id=1854283486]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_pjn1s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lrdw4")
+
+[node name="HPTextLabel" type="Label" parent="UI/PlayerHUD/VBox" unique_id=1738998805]
+layout_mode = 2
+text = "22/22"
+
+[node name="EnemyHUD" type="PanelContainer" parent="UI" unique_id=1593940992]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 384.0
+offset_bottom = 114.0
+
+[node name="VBox" type="VBoxContainer" parent="UI/EnemyHUD" unique_id=581189626]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/EnemyHUD/VBox" unique_id=621533014]
+layout_mode = 2
+
+[node name="EnemyNameLabel" type="Label" parent="UI/EnemyHUD/VBox/HBoxContainer" unique_id=1367946671]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+
+[node name="LevelLabel" type="Label" parent="UI/EnemyHUD/VBox/HBoxContainer" unique_id=221002293]
+layout_mode = 2
+
+[node name="EnemyHPBar" type="ProgressBar" parent="UI/EnemyHUD/VBox" unique_id=304965586]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3hmwm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_83ubk")
+
+[node name="HPTextLabel" type="Label" parent="UI/EnemyHUD/VBox" unique_id=134124327]
+layout_mode = 2
+text = "22/22"
+
+[node name="Buttons" type="HBoxContainer" parent="UI" unique_id=1486468351]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -157.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="UI/Buttons" unique_id=2118013631]
+layout_mode = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = 35
+columns = 2
+
+[node name="AttackButton" type="Button" parent="UI/Buttons/GridContainer" unique_id=652991516]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 35
 text = "Attack"
 
-[node name="SkillButton" type="Button" parent="Buttons" unique_id=1878738660]
+[node name="SkillButton" type="Button" parent="UI/Buttons/GridContainer" unique_id=1878738660]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 35
 text = "Skill"
 
-[node name="ItemButton" type="Button" parent="Buttons" unique_id=593477048]
+[node name="ItemButton" type="Button" parent="UI/Buttons/GridContainer" unique_id=593477048]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 35
 text = "Item"
 
-[node name="RunButton" type="Button" parent="Buttons" unique_id=1630840801]
+[node name="RunButton" type="Button" parent="UI/Buttons/GridContainer" unique_id=1630840801]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 35
 text = "Run"
 
-[node name="SkillPanel" type="Panel" parent="." unique_id=2045369303]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 39.0
-offset_right = 410.0
-offset_bottom = 79.0
+[node name="SkillPanel" type="Panel" parent="UI" unique_id=2045369303]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -484.0
+offset_top = -160.0
+offset_right = -280.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="SkillList" type="VBoxContainer" parent="SkillPanel" unique_id=1087738284]
+[node name="SkillList" type="VBoxContainer" parent="UI/SkillPanel" unique_id=1087738284]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_right = 199.0
+offset_bottom = 113.0
+theme_override_constants/separation = 4
 
-[node name="FireSealButton" type="Button" parent="SkillPanel/SkillList" unique_id=360238262]
+[node name="FireSealButton" type="Button" parent="UI/SkillPanel/SkillList" unique_id=360238262]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 30
 text = "Fire Seal"
 
-[node name="BarrierButton" type="Button" parent="SkillPanel/SkillList" unique_id=2062960222]
+[node name="BarrierButton" type="Button" parent="UI/SkillPanel/SkillList" unique_id=2062960222]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 30
 text = "Barrier Seal"
 
-[node name="BackButton" type="Button" parent="SkillPanel/SkillList" unique_id=1633708111]
+[node name="BackButton" type="Button" parent="UI/SkillPanel/SkillList" unique_id=1633708111]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_pjn1s")
+theme_override_font_sizes/font_size = 30
 text = "Back"

@@ -23,8 +23,9 @@ Transition="*uid://ddhn7dpqy70k4"
 
 [display]
 
-window/size/viewport_width=1270
-window/size/viewport_height=644
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 
@@ -73,5 +74,6 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"

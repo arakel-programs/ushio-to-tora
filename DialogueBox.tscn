@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cxko1qppxfhbc"]
 
+[ext_resource type="FontFile" uid="uid://c844wmm6jwurt" path="res://BebasNeue-Regular.ttf" id="1_k4804"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhqbd"]
 content_margin_left = 16.0
 content_margin_top = 12.0
@@ -33,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_k4804")
 text = "Dialogue text here"
 vertical_alignment = 1
 autowrap_mode = 2
